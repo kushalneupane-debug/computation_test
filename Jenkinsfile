@@ -17,11 +17,6 @@ pipeline {
             steps {
                 sh 'mvn -B clean verify'
             }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
         }
 
         stage('Coverage Report') {
