@@ -109,4 +109,19 @@ class CalculatorTest {
 				() -> calculator.divide(100, 0));
 		assertEquals("Denominator value cannot be zero.", exception.getMessage());
 	}
+
+	// ---------- 5. divide() - positive tests (added to raise line coverage to 100%) ----------
+
+	@Order(5)
+	@DisplayName("Divide two numbers")
+	@ParameterizedTest(name = "{0} / {1} = {2}")
+	@CsvSource({
+		"100, 2, 50",
+		"100, -2, -50",
+		"-100, 2, -50",
+		"-100, -2, 50"
+	})
+	void divide(int input1, int input2, int expected) {
+		assertEquals(expected, calculator.divide(input1, input2));
+	}
 }
